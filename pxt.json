@@ -1,0 +1,27 @@
+{
+    "name": "pxt-rc-car-control",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "pxt-sensors": "github:tomaskazda/pxt-sensors#96a84d501f4f6ba812be437824e1973b547e8814",
+        "pxt-magicbit-pca9685": "github:tomaskazda/pxt-magicbit-pca9685#31053e8d1380ca67c69e729c607b8c68fd4357a5"
+    },
+    "files": [
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "5.0.12",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj",
+    "languageRestriction": "javascript-only"
+}
