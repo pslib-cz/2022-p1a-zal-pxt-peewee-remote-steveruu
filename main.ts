@@ -1,21 +1,3 @@
-//https://tomaskazda.github.io/pxt-sensors/ senzory
-//https://tomaskazda.github.io/pxt-magicbit-pca9685/ motory
-
-//piny:
-
-//servo - S1
-//levy motor - M1
-//pravy motor - M4
-
-//center IR - P15
-//levy IR - P14
-//pravy IR - P13
-//levy RPM check - P12
-//pravy RPM check - P8
-//sonar trig - P2
-//sonar echo - P1
-//led - P0
-
 pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive);
 pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Capacitive);
 pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive);
@@ -27,15 +9,10 @@ let xmod;
 let ymod;
 
 basic.forever(function () {
-    xmod = input.acceleration(Dimension.X) + 1024;
-    xmod = Math.floor(xmod / 8);
-    if (xmod > 255) xmod = 255;
-    if (xmod < 0) xmod = 0;
-
-    ymod = input.acceleration(Dimension.Y) + 1024;
-    ymod = Math.floor(ymod / 8);
-    if (ymod > 255) ymod = 255;
-    if (ymod < 0) ymod = 0;
+    xmod = Math.floor((input.acceleration(Dimension.X) + 1024) / 8); // floor kvuli 255
+    xmod = Math.constrain(xmod, 0, 255); // <0, 255>
+    ymod = Math.floor((input.acceleration(Dimension.Y) + 1024) / 8);
+    ymod = Math.constrain(ymod, 0, 255);
 
     let data = {
         x: xmod,
